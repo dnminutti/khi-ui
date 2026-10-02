@@ -1,0 +1,11 @@
+[tasks.build]
+description = "Compila la app en modo release y corre los tests offline"
+run = "cargo build --release && cargo test -q"
+
+[tasks.run]
+description = "Compila y abre la app"
+run = "cargo run --release"
+
+[tasks.live]
+description = "Prueba contra el sitio real (HTML y Cloudflare)"
+run = "cargo test -q -- --ignored"

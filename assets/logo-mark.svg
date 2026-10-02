@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="60 40 136 176" width="136" height="176">
+  <title>KHI-UI</title>
+  <defs>
+    <mask id="glyph" maskUnits="userSpaceOnUse" x="0" y="0" width="256" height="256">
+      <path fill="#fff" d="M64 40 Q64 28 76 28 H172 L192 48 V216 Q192 228 180 228 H76 Q64 228 64 216 Z"/>
+      <g fill="#000">
+        <rect x="84" y="38" width="80" height="5" rx="2.5"/>
+        <rect x="84" y="48" width="84" height="5" rx="2.5"/>
+        <rect x="80" y="66" width="96" height="104" rx="8"/>
+        <path d="M116 194 H140 L128 208 Z"/>
+      </g>
+      <circle fill="#fff" cx="128" cy="118" r="36"/>
+      <g fill="#000">
+        <rect x="125.5" y="88" width="5" height="7"/>
+        <rect x="125.5" y="88" width="5" height="7" transform="rotate(45 128 118)"/>
+        <rect x="125.5" y="88" width="5" height="7" transform="rotate(90 128 118)"/>
+        <rect x="125.5" y="88" width="5" height="7" transform="rotate(135 128 118)"/>
+        <rect x="125.5" y="88" width="5" height="7" transform="rotate(180 128 118)"/>
+        <rect x="125.5" y="88" width="5" height="7" transform="rotate(225 128 118)"/>
+        <rect x="125.5" y="88" width="5" height="7" transform="rotate(270 128 118)"/>
+        <rect x="125.5" y="88" width="5" height="7" transform="rotate(315 128 118)"/>
+        <circle cx="128" cy="118" r="14"/>
+      </g>
+      <path fill="#fff" d="M123 110 L136 118 L123 126 Z"/>
+    </mask>
+  </defs>
+  <g transform="translate(128 128) rotate(-14) scale(0.76) translate(-128 -128)">
+    <rect width="256" height="256" fill="#fff" mask="url(#glyph)"/>
+  </g>
+</svg>

@@ -1,0 +1,11 @@
+# Paleta oficial: https://catppuccin.com/palette (Mocha, acento Mauve).
+name = "Catppuccin Mocha"
+dark = true
+
+base = "#1e1e2e"
+mantle = "#181825"
+crust = "#11111b"
+surface = "#313244"
+muted = "#a6adc8"       # Subtext 0
+text = "#cdd6f4"
+accent = "#cba6f7"      # Mauve

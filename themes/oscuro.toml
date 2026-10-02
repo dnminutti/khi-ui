@@ -1,0 +1,11 @@
+name = "Oscuro"
+name_en = "Dark"
+dark = true
+
+base = "#16181d"
+mantle = "#101216"
+crust = "#0b0c0f"
+surface = "#262a32"
+muted = "#8b919d"
+text = "#e6e8ec"
+accent = "#5b9dff"

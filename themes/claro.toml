@@ -1,0 +1,16 @@
+# Tema de KHI-UI. Para crear uno propio, copia este archivo a
+# ~/.config/khi-ui/themes/<nombre>.toml, cambia el nombre y los colores,
+# y reinicia la app: aparece en la pantalla de opciones (⚙ en la barra lateral).
+# Las claves siguen la paleta de Catppuccin, así que se pueden portar sus temas.
+
+name = "Claro"
+name_en = "Light"      # opcional: nombre cuando la app está en inglés
+dark = false            # true para temas oscuros
+
+base = "#ffffff"        # fondo de la lista y del álbum
+mantle = "#f3f4f6"      # fondo de la barra lateral
+crust = "#e9ebef"       # fondo del reproductor
+surface = "#e2e5ea"     # hover, botones y pista de la barra de progreso
+muted = "#5b6270"       # texto secundario: duraciones, conteos, encabezados
+text = "#111827"        # texto principal
+accent = "#1d4ed8"      # selección, pista actual, botón de reproducir
