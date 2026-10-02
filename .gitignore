@@ -1,2 +1,7 @@
 /target
 .DS_Store
+anti-slop/
+.claude/
+.idea/
+.vscode/
+mise.local.toml

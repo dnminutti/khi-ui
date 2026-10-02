@@ -1,0 +1,63 @@
+name: Release
+
+on:
+  push:
+    branches: [main]
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    strategy:
+      matrix:
+        include:
+          - os: ubuntu-latest
+            asset: khi-ui-linux-x86_64.tar.gz
+          - os: macos-latest
+            asset: khi-ui-macos-arm64.tar.gz
+          - os: windows-latest
+            asset: khi-ui-windows-x86_64.zip
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+      - uses: Swatinem/rust-cache@v2
+
+      - name: Dependencias de Linux
+        if: runner.os == 'Linux'
+        run: sudo apt-get update && sudo apt-get install -y libasound2-dev libxkbcommon-dev
+      # BoringSSL (lo usa wreq) necesita NASM para compilar en Windows.
+      - uses: ilammy/setup-nasm@v1
+        if: runner.os == 'Windows'
+
+      - run: cargo build --release --locked
+
+      - name: Empaquetar (Unix)
+        if: runner.os != 'Windows'
+        run: tar -czf ${{ matrix.asset }} -C target/release khi-ui
+      - name: Empaquetar (Windows)
+        if: runner.os == 'Windows'
+        run: Compress-Archive target/release/khi-ui.exe ${{ matrix.asset }}
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ${{ matrix.asset }}
+          path: ${{ matrix.asset }}
+
+  release:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with:
+          path: dist
+          merge-multiple: true
+      - name: Publicar release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          version=$(grep -m1 '^version' Cargo.toml | cut -d'"' -f2)
+          tag="v${version}-${{ github.run_number }}"
+          gh release create "$tag" dist/* --target "$GITHUB_SHA" --title "$tag" --generate-notes
